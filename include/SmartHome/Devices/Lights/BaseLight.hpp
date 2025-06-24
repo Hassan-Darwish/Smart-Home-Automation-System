@@ -29,7 +29,11 @@ namespace SmartHome::Devices::Lights
         public:
 
             /*
-            *  Description : BaseLight Constructor initializes the lights id and type 
+            *  Description : Constructs a BaseLight instance with specified parameters.
+            *                Initializes the Light with unique ID, type/model
+            *  Parameters  :
+            *    - id               : Unique identifier for the Light (std::string)
+            *    - type             : Light model/type (std::string)
             */
             BaseLight(const std::string& id, const std::string& type);
         

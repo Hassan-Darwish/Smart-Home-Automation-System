@@ -75,7 +75,7 @@ std::string SmartHome::Devices::Lights::BaseLight::getStatus(void) const
             stateReturnal = "OFF";
             break;
     }
-    return _type + " " + stateReturnal;
+    return _type + " | " + stateReturnal;
 }
 /******************************************************************************
  *  END OF FILE

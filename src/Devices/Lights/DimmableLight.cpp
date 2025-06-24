@@ -11,6 +11,7 @@
  *  INCLUDES
  ******************************************************************************/
 #include "SmartHome/Devices/Lights/DimmableLight.hpp"
+#include <algorithm> // used for std::clamp
 
 /*
  *  Description : DimmableLight Constructor initializes the lights id and type 
@@ -59,7 +60,7 @@ std::string SmartHome::Devices::Lights::DimmableLight::getStatus(void) const
             stateReturnal = "ON";
             break;
     }
-    return _type + " " + stateReturnal + "(" + std::to_string(_brightness) + "%)";
+    return _type + " | " + stateReturnal + "(" + std::to_string(_brightness) + "%)";
 }
 
 /*

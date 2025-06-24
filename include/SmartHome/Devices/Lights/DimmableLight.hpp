@@ -16,7 +16,6 @@
  *  INCLUDES
  ******************************************************************************/
 #include "BaseLight.hpp"
-#include <bits/stdc++.h> // used for std::clamp
 
 namespace SmartHome::Devices::Lights
 {
@@ -29,8 +28,12 @@ namespace SmartHome::Devices::Lights
     {
         public:
             /*
-             *  Description : DimmableLight Constructor initializes the lights id and type 
-             */
+            *  Description : Constructs a DimmableLight instance with specified parameters.
+            *                Initializes the Light with unique ID, type/model
+            *  Parameters  :
+            *    - id               : Unique identifier for the Light (std::string)
+            *    - type             : Light model/type (std::string)
+            */
             DimmableLight(const std::string& id, const std::string& type);
 
             /*
