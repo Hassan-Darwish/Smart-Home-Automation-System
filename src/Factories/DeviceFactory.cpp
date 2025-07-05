@@ -1,0 +1,1 @@
+#include "SmartHome/Factories/DeviceFactory.hpp"
