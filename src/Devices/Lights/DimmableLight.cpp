@@ -90,6 +90,15 @@ void SmartHome::Devices::Lights::DimmableLight::setBrightness(int level)
     _brightness = level;
 }
 
+/*
+*  Description : Gets the brightness level of the light.
+*                Expected range: [0-100]
+*/
+int SmartHome::Devices::Lights::DimmableLight::getBrightness(void) const
+{
+    return _brightness;
+}
+
 /******************************************************************************
  *  END OF FILE
  ******************************************************************************/

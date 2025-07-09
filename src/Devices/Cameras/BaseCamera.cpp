@@ -131,7 +131,7 @@ void SmartHome::Devices::Cameras::BaseCamera::disableNightVision(void)
  *  Description : Checks if night vision is currently enabled.
  *  Returns     : true if night vision is on, false otherwise (bool)
  */
-bool SmartHome::Devices::Cameras::BaseCamera::nightVisionEnabled(void)
+bool SmartHome::Devices::Cameras::BaseCamera::isNightVisionEnabled(void)
 {
     return _nightVisionEnabled;
 }

@@ -57,6 +57,12 @@ namespace SmartHome::Devices::Lights
              */
             void setBrightness(int level);
 
+            /*
+             *  Description : Gets the brightness level of the light.
+             *                Expected range: [0-100]
+             */
+            int getBrightness(void) const;
+
         protected:
             /*
              *  Description : Enum representing light state (ON, DIMMED, OFF).

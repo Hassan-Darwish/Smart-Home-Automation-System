@@ -81,7 +81,7 @@ namespace SmartHome::Devices::Cameras
             /*
              *  Description : returns Night Vision status.
              */
-            virtual bool nightVisionEnabled(void) final;
+            virtual bool isNightVisionEnabled(void) final;
 
         protected:
             /*

@@ -56,6 +56,21 @@ namespace SmartHome::Devices
         bool isOn(void) override;
 
         /*
+         *  Description: Explicitly lock the door.
+         */
+        void DoorLock::lockDoor(void);
+
+        /*
+         *  Description: Explicitly unlock the door.
+         */
+        void DoorLock::unlockDoor(void);
+
+        /*
+         * Returns true if the door is currently locked.
+         */
+        bool DoorLock::isDoorLocked(void);
+
+        /*
          *  Description: Allows user to change the keypad PIN code.
          */
         void changePinCode(void);
