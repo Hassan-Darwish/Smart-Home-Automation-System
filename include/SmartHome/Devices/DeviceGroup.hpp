@@ -62,9 +62,15 @@ namespace SmartHome::Devices
             *  Description: Returns a combined status string from all devices.
             */
             std::string getStatus(void) const override;
+
+            /*
+             *  Description: Returns all devices in the group.
+             */
+            const std::unordered_map<std::string, std::shared_ptr<IDevice>>& getDevices() const;
+
         
         private:
-            std::unordered_map<std::string, IDevice*> _devices;    // Collection of device pointers in the group
+            std::unordered_map<std::string, std::shared_ptr<IDevice>> _devices;    // Collection of device pointers in the group
             std::string _groupName;            // Optional: name for the group (unused yet)
 
     };

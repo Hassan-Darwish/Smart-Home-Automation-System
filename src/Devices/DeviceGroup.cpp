@@ -9,6 +9,7 @@
  ******************************************************************************/
 
 #include "SmartHome/Devices/DeviceGroup.hpp"
+#include "SmartHome/Core/IDevice.hpp"
 
 /*
  *  Constructor: Initializes the device group with a name identifier.
@@ -99,6 +100,14 @@ std::string SmartHome::Devices::DeviceGroup::getStatus(void) const
                         + "Device Status: " + device.second->getStatus() + "\n";
     }
     return statusReturnal;
+}
+
+/*
+ *  Description: Returns all devices in the group.
+ */
+const std::unordered_map<std::string, std::shared_ptr<SmartHome::Core::IDevice>>& SmartHome::Devices::DeviceGroup::getDevices() const
+{
+    return _devices;
 }
 
 /******************************************************************************
