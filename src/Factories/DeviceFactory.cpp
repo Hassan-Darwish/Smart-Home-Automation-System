@@ -7,7 +7,7 @@
  *  DATE CREATED : July 2025
  ******************************************************************************/
 
-#include "SmartHome/Factory/DeviceFactory.hpp"
+#include "SmartHome/Factories/DeviceFactory.hpp"
 #include <algorithm>     // for std::transform
 #include <cctype>        // for std::toupper
 #include <sstream>       // for std::ostringstream
