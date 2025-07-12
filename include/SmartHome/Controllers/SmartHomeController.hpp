@@ -1,126 +1,137 @@
 /******************************************************************************
  *  MODULE NAME  : Smart Home Controller
  *  FILE         : SmartHomeController.hpp
- *  DESCRIPTION  : Central controller class for managing smart home devices,
- *                 groups, automation rules, command execution, and scheduling.
+ *  DESCRIPTION  : Declares the SmartHomeController class, which serves as the
+ *                 main entry point and user interface handler for the Smart Home
+ *                 system. It manages devices, groups, and automation modes.
  *  AUTHOR       : Hassan Darwish
  *  DATE CREATED : July 2025
  ******************************************************************************/
 
 #pragma once
 
-#include <string>
-#include <unordered_map>
 #include <vector>
-#include <queue>
-#include <stack>
 #include <memory>
-#include <iostream>
+#include <unordered_map>
+#include <string>
 
 #include "SmartHome/Core/IDevice.hpp"
-#include "SmartHome/Core/IAutomationMode.hpp"
 #include "SmartHome/Core/ICommand.hpp"
+#include "SmartHome/Core/IAutomationMode.hpp"
+#include "SmartHome/Devices/SupportedDevices.hpp"
+#include "SmartHome/Automation/SupportedAutomationModes.hpp"
+#include "SmartHome/Commands/SupportedCommands.hpp"
 #include "SmartHome/Controllers/Scheduler.hpp"
+#include "SmartHome/Factory/DeviceFactory.hpp"
 
-namespace SmartHome::Controllers
+
+
+namespace SmartHome
 {
+    /******************************************************************************
+     *  CLASS NAME   : SmartHomeController
+     *  DESCRIPTION  : Manages overall system operation, including device and group
+     *                 management, user interaction, and activation of automation modes.
+     ******************************************************************************/
+    class SmartHomeController
+    {
+    public:
+        /*
+         *  Description: Constructs the controller, initializing scheduler and
+         *               automation modes.
+         */
+        SmartHomeController();
 
-/******************************************************************************
- *  CLASS NAME   : SmartHomeController
- *  DESCRIPTION  : Main coordinator that handles all registered devices, device
- *                 groups, automation rules, commands, and scheduled events.
- ******************************************************************************/
-class SmartHomeController
-{
-public:
-    /*
-     *  Description: Adds a device to the system by ID.
-     */
-    void addDevice(const std::string& id, std::shared_ptr<Core::IDevice> device);
+        /*
+         *  Description: Runs the main application loop, displaying menus and
+         *               responding to user input.
+         */
+        void run();
 
-    /*
-     *  Description: Removes a device from the system by ID.
-     */
-    bool removeDevice(const std::string& id);
+    private:
+        std::vector<std::shared_ptr<Core::IDevice>> _devices;                     // All registered devices
+        std::shared_ptr<Core::ICommand> _cmd;                                     // All Commands
+        std::vector<std::shared_ptr<Core::IAutomationMode>> _modes;               // All Modes
+        std::unordered_map<std::string, std::shared_ptr<Devices::DeviceGroup>>   
+            _groups;                                                             // Named device groups
 
-    /*
-     *  Description: Returns a device pointer by ID.
-     */
-    std::shared_ptr<Core::IDevice> getDevice(const std::string& id) const;
+        Controller::Scheduler _scheduler;                                        // System task scheduler
 
-    /*
-     *  Description: Adds a group of devices with a shared ID.
-     */
-    void addGroup(const std::string& groupName, std::shared_ptr<Core::IDevice> group);
+        /*
+         *  Description: Enum made to select Automation Modes
+         */
+        enum Modes
+        {
+            SECURITYMODE, ENERGYMODE
+        };
 
-    /*
-     *  Description: Removes a group of devices by group name.
-     */
-    bool removeGroup(const std::string& groupName);
 
-    /*
-     *  Description: Returns a device group pointer by group name.
-     */
-    std::shared_ptr<Core::IDevice> getGroup(const std::string& groupName) const;
+        /*
+         *  Description: Displays and handles the main menu options.
+         */
+        void mainMenu();
 
-    /*
-     *  Description: Turns ON all devices in the system.
-     */
-    void turnAllOn();
+        /*
+         *  Description: Displays and handles the device management menu.
+         */
+        void deviceMenu();
 
-    /*
-     *  Description: Turns OFF all devices in the system.
-     */
-    void turnAllOff();
+        /*
+         *  Description: Prompts user input to add a new device to the system.
+         */
+        void addDevice();
 
-    /*
-     *  Description: Prints the current status of all devices and groups.
-     */
-    void printSystemStatus() const;
+        /*
+         *  Description: Lists all registered devices with their statuses.
+         */
+        void listAllDevices() const;
 
-    /*
-     *  Description: Registers an automation rule (e.g., time-based or event-based).
-     */
-    void registerAutomationRule(std::shared_ptr<Core::IAutomationMode> mode);
+        /*
+         *  Description: Allows user to control a single device (on/off/status).
+         */
+        void controlDevice();
 
-    /*
-     *  Description: Checks and applies all registered automation rules.
-     */
-    void checkAutomations();
+        /*
+         *  Description: Displays and handles the group management menu.
+         */
+        void groupMenu();
 
-    /*
-     *  Description: Queues a command for later execution.
-     */
-    void queueCommand(std::shared_ptr<Core::ICommand> command);
+        /*
+         *  Description: Prompts user to create a new device group.
+         */
+        void createGroup();
 
-    /*
-     *  Description: Executes all commands currently in the queue.
-     */
-    void executeQueuedCommands();
+        /*
+         *  Description: Deletes an existing device group by name.
+         */
+        void deleteGroup();
 
-    /*
-     *  Description: Undoes the last executed command if any exist.
-     */
-    void undoLastCommand();
+        /*
+         *  Description: Adds an existing device to a specified group.
+         */
+        void addDeviceToGroup();
 
-    /*
-     *  Description: Advances the internal scheduler (e.g., for timed events).
-     */
-    void tickScheduler();
+        /*
+         *  Description: Lists all devices within a specified group.
+         */
+        void listDevicesInGroup();
 
-private:
-    std::unordered_map<std::string, std::shared_ptr<Core::IDevice>> _devices;   // Individual devices
-    std::unordered_map<std::string, std::shared_ptr<Core::IDevice>> _groups;    // Device groups
+        /*
+         *  Description: Allows user to control all devices in a group.
+         */
+        void controlGroup();
 
-    std::vector<std::shared_ptr<Core::IAutomationMode>> _automationModes; // Automation logic
+        /*
+         *  Description: Activates security mode automation.
+         */
+        void activateSecurityMode();
 
-    std::queue<std::shared_ptr<Core::ICommand>> _commandQueue;        // Pending commands
-    std::stack<std::shared_ptr<Core::ICommand>> _commandHistory;      // Executed command history
-
-    Scheduler _scheduler; // Optional: supports timed automations
-};
-
-} // namespace SmartHome::Controllers
+        /*
+         *  Description: Activates energy-saving mode automation.
+         */
+        void activateEnergySavingMode();
+    };
+}
 
 /******************************************************************************
  *  END OF FILE

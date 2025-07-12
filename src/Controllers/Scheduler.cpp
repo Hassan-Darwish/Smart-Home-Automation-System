@@ -9,7 +9,7 @@
 
 #include "SmartHome/Controllers/Scheduler.hpp"
 
-using namespace SmartHome::Core;
+using namespace SmartHome::Controller;
 
 /*
  *  Description: Schedules a task to be executed after a specified delay.

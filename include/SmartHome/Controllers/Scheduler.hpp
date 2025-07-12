@@ -14,7 +14,7 @@
 #include <chrono>
 #include <vector>
 
-namespace SmartHome::Core
+namespace SmartHome::Controller
 {
     class Scheduler
     {
