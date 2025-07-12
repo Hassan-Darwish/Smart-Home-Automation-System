@@ -69,7 +69,7 @@ std::string SmartHome::Devices::Lights::DimmableLight::getStatus(void) const
  */
 void SmartHome::Devices::Lights::DimmableLight::setBrightness(int level)
 {
-    std::clamp(level, 0, 100);
+    level = std::clamp(level, 0, 100);
 
     if(level >= 1 && level <= 50)
     {

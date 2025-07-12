@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "../SmartHome/Devices/Thermostats/BaseThermostat.hpp"
+#include "SmartHome/Devices/Thermostats/BaseThermostat.hpp"
 
 namespace SmartHome::Devices::Thermostats
 {

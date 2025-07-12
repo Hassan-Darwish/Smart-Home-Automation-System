@@ -7,7 +7,7 @@
  *  DATE CREATED : June 2025
  ******************************************************************************/
 
-#include "../SmartHome/Devices/Thermostats/CoolerThermostat.hpp"
+#include "SmartHome/Devices/Thermostats/CoolerThermostat.hpp"
 
 /*
  *  Description : Constructs a CoolerThermostat instance.

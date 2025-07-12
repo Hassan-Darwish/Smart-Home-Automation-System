@@ -7,8 +7,8 @@
  *  DATE CREATED : June 2025
  ******************************************************************************/
 
-#include "../SmartHome/Devices/Cameras/BaseCamera.hpp"
-#include "../SmartHome/Utils/StringUtils.hpp"
+#include "SmartHome/Devices/Cameras/BaseCamera.hpp"
+#include "SmartHome/Utils/StringUtils.hpp"
 
 /*
  *  Description : Constructs a BaseCamera instance with specified ID and type.

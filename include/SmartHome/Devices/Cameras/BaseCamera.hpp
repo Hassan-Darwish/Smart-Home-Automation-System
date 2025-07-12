@@ -7,6 +7,8 @@
  *  DATE CREATED : June 2025
  ******************************************************************************/
 
+#pragma once
+
 #include "SmartHome/Core/IDevice.hpp"
 
 namespace SmartHome::Devices::Cameras

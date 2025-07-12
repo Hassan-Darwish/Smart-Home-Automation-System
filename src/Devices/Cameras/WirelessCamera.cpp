@@ -7,8 +7,8 @@
  *  DATE CREATED : June 2025
  ******************************************************************************/
 
-#include "../SmartHome/Devices/Cameras/WirelessCamera.hpp"
-#include "../SmartHome/Utils/StringUtils.hpp"
+#include "SmartHome/Devices/Cameras/WirelessCamera.hpp"
+#include "SmartHome/Utils/StringUtils.hpp"
 #include <algorithm> // used for std::clamp
 
 /*

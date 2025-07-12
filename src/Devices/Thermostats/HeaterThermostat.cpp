@@ -7,7 +7,7 @@
  *  DATE CREATED : June 2025
  ******************************************************************************/
 
-#include "../SmartHome/Devices/Thermostats/HeaterThermostat.hpp"
+#include "SmartHome/Devices/Thermostats/HeaterThermostat.hpp"
 
 /*
  *  Description : Constructs a HeaterThermostat instance.

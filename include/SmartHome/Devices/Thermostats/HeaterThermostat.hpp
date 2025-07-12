@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "../SmartHome/Devices/Thermostats/BaseThermostat.hpp"
+#include "SmartHome/Devices/Thermostats/BaseThermostat.hpp"
 
 namespace SmartHome::Devices::Thermostats
 {
@@ -29,14 +29,6 @@ namespace SmartHome::Devices::Thermostats
          */
         HeaterThermostat(const std::string& id, const std::string& type);
 
-        /*
-         *  Description : Gets detailed status information including:
-         *                - Operation mode (HEATING/OFF)
-         *                - Current and target temperatures
-         *                - Heating system status
-         *  Returns     : Formatted status string (std::string)
-         */
-        std::string getStatus(void) const override;
 
         /*
          *  Description : Sets the heating operation mode with heater-specific logic.

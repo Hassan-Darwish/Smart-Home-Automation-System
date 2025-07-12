@@ -7,7 +7,7 @@
  *  DATE CREATED : June 2025
  ******************************************************************************/
 
-#include "../SmartHome/Devices/Thermostats/BaseThermostat.hpp"
+#include "SmartHome/Devices/Thermostats/BaseThermostat.hpp"
 #include <algorithm> // used for std::clamp
 
 /*
