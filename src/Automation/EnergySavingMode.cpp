@@ -13,7 +13,7 @@ using namespace SmartHome::Automation;
 using namespace SmartHome::Devices;
 using namespace SmartHome::Devices::Sensors;
 using namespace SmartHome::Commands;
-using namespace SmartHome::Core;
+using namespace SmartHome::Controller;
 
 EnergySavingMode::EnergySavingMode(Scheduler& scheduler)
     : _scheduler(scheduler)

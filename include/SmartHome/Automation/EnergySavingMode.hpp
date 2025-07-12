@@ -27,7 +27,7 @@ namespace SmartHome::Automation
         /*
          *  Description: Constructor that takes a reference to the shared system scheduler.
          */
-        EnergySavingMode(SmartHome::Core::Scheduler& scheduler);
+        EnergySavingMode(SmartHome::Controller::Scheduler& scheduler);
 
         /*
          *  Description: Activates energy-saving mode for the given device groups.
@@ -41,7 +41,7 @@ namespace SmartHome::Automation
         void deactivate() override;
 
     private:
-        SmartHome::Core::Scheduler& _scheduler;
+        SmartHome::Controller::Scheduler& _scheduler;
 
         // Map of group ID to its associated turn-off command
         std::unordered_map<std::string, std::shared_ptr<SmartHome::Commands::GroupOffCommand>> _scheduledCommands;
