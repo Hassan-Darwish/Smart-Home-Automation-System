@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "../SmartHome/Core/IDevice.hpp"
+#include "SmartHome/Core/IDevice.hpp"
 #include <unordered_set>
 #include <string>
 #include <algorithm>

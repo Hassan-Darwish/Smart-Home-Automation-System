@@ -15,7 +15,7 @@
 /******************************************************************************
  *  INCLUDES
  ******************************************************************************/
-#include "../Core/IDevice.hpp"
+#include "SmartHome/Core/IDevice.hpp"
 
 namespace SmartHome::Devices::Lights
 {

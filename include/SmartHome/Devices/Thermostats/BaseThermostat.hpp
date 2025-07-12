@@ -8,7 +8,7 @@
  ******************************************************************************/
 #pragma once
 
-#include "../SmartHome/Core/IDevice.hpp"
+#include "SmartHome/Core/IDevice.hpp"
 
 namespace SmartHome::Devices::Thermostats
 {

@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "../SmartHome/Core/IDevice.hpp"
+#include "SmartHome/Core/IDevice.hpp"
 #include <map>
 
 namespace SmartHome::Devices
