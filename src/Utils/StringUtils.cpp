@@ -1,4 +1,4 @@
-#include "../SmartHome/Utils/StringUtils.hpp"
+#include "SmartHome/Utils/StringUtils.hpp"
 
 std::string SmartHome::Utils::boolToString(bool itIs)
 {
